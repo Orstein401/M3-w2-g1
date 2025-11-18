@@ -12,17 +12,22 @@ public class move_plyers : MonoBehaviour
     Vector2 Velocity;
     bool jump;
 
+    string Horizontal;
+    string Vertical;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Horizontal = $"Horizontal{numPlayer}";
+        Vertical = $"Jump{numPlayer}";
     }
 
     void Update()
     {
         Velocity = rb.velocity;
        
-            Velocity.x = Input.GetAxis($"Horizontal{numPlayer}")*speed;
-            if (Input.GetButtonDown($"Jump{numPlayer}"))
+            Velocity.x = Input.GetAxis(Horizontal)*speed;
+            if (Input.GetButtonDown(Vertical))
             {
                 jump = true;
             }     
